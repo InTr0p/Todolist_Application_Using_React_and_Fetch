@@ -1,24 +1,24 @@
 import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const Home = ({ erase, id, task }) => {
+	const deleteTask = () => {
+		erase(id);
+	};
 
-//create your first component
-const Home = () => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="container">
+			<div className="row d-flex">
+				<div className="col-sm-12 col-md-8 col-lg-8 mx-auto bg-dark rounded mt-1 d-flex justify-content-sm-between">
+					<div className="d-inline-block mt-2">
+						<span className="text-info p-2 fs-5">{task}</span>
+					</div>
+					<div className="mt-1 d-inline-block mb-1">
+						<span className="text-danger fs-4 erase" onClick={deleteTask}>
+							erase
+						</span>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
